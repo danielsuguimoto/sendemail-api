@@ -19,15 +19,15 @@ app.post("/sendemail", (req, res) => {
         port: 465,
         secure: true,
         auth: {
-            user: config.email,
-            pass: config.emailPassword
+            user: email,
+            pass: emailPassword
         }
     });
 
     var mailOptions = {
         from: req.body.email,
         replyTo: req.body.email,
-        to: config.email,
+        to: email,
         subject: "[FROM " + req.body.email + "] " + req.body.subject,
         text: req.body.name + " says: " + req.body.message
     };
