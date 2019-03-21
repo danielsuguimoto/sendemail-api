@@ -33,14 +33,14 @@ app.post("/sendemail", (req, res) => {
     };
 
     transporter.sendMail(mailOptions, function (error, info) {
-        var message = "";
+        var retorno = null;
         if (error) {
-            message = "Error: " + error;
+            retorno = { Sucess: false };
         }
         else {
-            message = "Message sent successfully: " + info.response;
+            retorno = { Sucess: true };
         }
-        res.send(message);
+        res.send(JSON.stringify(retorno));
     });
 });
 
