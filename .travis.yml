@@ -1,0 +1,16 @@
+language: node_js
+node_js: 
+  - "stable"
+cache:
+  directories:
+    - "node_modules"
+branches:
+  only:
+    - master
+deploy:
+  provider: heroku
+  api_key:
+    secure: $HEROKU_KEY
+  app: sendemail-api
+  on:
+    repo: danielsuguimoto/sendemail-api
