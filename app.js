@@ -10,8 +10,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'dist')));
 
-var email = process.env.EMAIL;
-var emailPassword = process.env.EMAIL_PASSWORD
+var email = process.env.EMAIL || '';
+var emailPassword = process.env.EMAIL_PASSWORD || '';
 
 app.post("/sendemail", (req, res) => {
     var transporter = nodeMailer.createTransport({
